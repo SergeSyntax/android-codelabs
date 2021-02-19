@@ -33,17 +33,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int wordListSize = mWordList.size();
-                // Add a new word to the wordList.
-                mWordList.addLast("+ Word " + wordListSize);
-                // Notify the adapter, that the data has changed.
-                mRecyclerView.getAdapter().notifyItemInserted(wordListSize);
-                // Scroll to the bottom.
-                mRecyclerView.smoothScrollToPosition(wordListSize);
-            }
+        fab.setOnClickListener(view -> {
+            int wordListSize = mWordList.size();
+            // Add a new word to the wordList.
+            mWordList.addLast("+ Word " + wordListSize);
+            // Notify the adapter, that the data has changed.
+            mRecyclerView.getAdapter().notifyItemInserted(wordListSize);
+            // Scroll to the bottom.
+            mRecyclerView.smoothScrollToPosition(wordListSize);
         });
 
 
