@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     public void scheduleJob(View view) {
         RadioGroup networkOptions = findViewById(R.id.networkOptions);
 
+
         int selectedNetworkID = networkOptions.getCheckedRadioButtonId();
 
         int selectedNetworkOption = JobInfo.NETWORK_TYPE_NONE;
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mScheduler != null) {
             mScheduler.cancelAll();
-            mScheduler = null;
+//            mScheduler = null;
             Toast.makeText(this, R.string.jobs_canceled, Toast.LENGTH_SHORT)
                     .show();
         }

@@ -1,0 +1,101 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/16a05d0c9992fbb0439e8f0e9acda3d9/appcompat-v7-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/sergway/.gradle/caches/transforms-2/files-2.1/61c3a2ce8f4e2b86bb6282bcb32d41fc/constraint-layout-1.1.2/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/99368409959899124446f311a4abb770/support-fragment-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/3a5fed57637807d434263c2d0eea137d/animated-vector-drawable-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/0089663c92fc2a33f40f9f072f8c91db/support-core-ui-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/0c28e6d2f1501cd034e28236684a9782/support-core-utils-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/ac241d151c2f46a9cd5e17fe6c05df71/support-vector-drawable-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/aef1b2c68bce787da6f423d0f11b09db/support-compat-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/893da537e3d3398b3b110768418c5112/livedata-core-1.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/15d3ffe7b88ac70edb991626b39dedad/viewmodel-1.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/45733aaea8e62e05dba3240bd17e74fd/runtime-1.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/c6468b38b30113d5c022c4e547f40a8f/runtime-1.1.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+	package
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:16:11-57
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:1-32:12
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:15:11-69
+application
+ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:18:5-30:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/sergway/.gradle/caches/transforms-2/files-2.1/61c3a2ce8f4e2b86bb6282bcb32d41fc/constraint-layout-1.1.2/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/sergway/.gradle/caches/transforms-2/files-2.1/61c3a2ce8f4e2b86bb6282bcb32d41fc/constraint-layout-1.1.2/AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:22:9-35
+	android:label
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:21:9-41
+	android:icon
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:20:9-43
+	android:allowBackup
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:19:9-35
+	android:theme
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:23:9-40
+activity#com.example.android.hellosharedprefs.MainActivity
+ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:24:9-29:20
+	android:name
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:24:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:25:13-28:29
+action#android.intent.action.MAIN
+ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml:27:27-74
+uses-sdk
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/16a05d0c9992fbb0439e8f0e9acda3d9/appcompat-v7-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/16a05d0c9992fbb0439e8f0e9acda3d9/appcompat-v7-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/sergway/.gradle/caches/transforms-2/files-2.1/61c3a2ce8f4e2b86bb6282bcb32d41fc/constraint-layout-1.1.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/sergway/.gradle/caches/transforms-2/files-2.1/61c3a2ce8f4e2b86bb6282bcb32d41fc/constraint-layout-1.1.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/99368409959899124446f311a4abb770/support-fragment-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/99368409959899124446f311a4abb770/support-fragment-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/3a5fed57637807d434263c2d0eea137d/animated-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/3a5fed57637807d434263c2d0eea137d/animated-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/0089663c92fc2a33f40f9f072f8c91db/support-core-ui-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/0089663c92fc2a33f40f9f072f8c91db/support-core-ui-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/0c28e6d2f1501cd034e28236684a9782/support-core-utils-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/0c28e6d2f1501cd034e28236684a9782/support-core-utils-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/ac241d151c2f46a9cd5e17fe6c05df71/support-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/ac241d151c2f46a9cd5e17fe6c05df71/support-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/aef1b2c68bce787da6f423d0f11b09db/support-compat-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/sergway/.gradle/caches/transforms-2/files-2.1/aef1b2c68bce787da6f423d0f11b09db/support-compat-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/893da537e3d3398b3b110768418c5112/livedata-core-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/893da537e3d3398b3b110768418c5112/livedata-core-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/15d3ffe7b88ac70edb991626b39dedad/viewmodel-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/15d3ffe7b88ac70edb991626b39dedad/viewmodel-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/45733aaea8e62e05dba3240bd17e74fd/runtime-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/45733aaea8e62e05dba3240bd17e74fd/runtime-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/c6468b38b30113d5c022c4e547f40a8f/runtime-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/sergway/.gradle/caches/transforms-2/files-2.1/c6468b38b30113d5c022c4e547f40a8f/runtime-1.1.0/AndroidManifest.xml:20:5-44
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		ADDED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
+		INJECTED from /home/sergway/workspace/android/android-codelabs/HelloSharedPrefs/app/src/main/AndroidManifest.xml
