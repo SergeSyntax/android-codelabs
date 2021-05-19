@@ -13,13 +13,28 @@ public class WordViewModel extends AndroidViewModel {
 
     private final LiveData<List<WordEntity>> mAllWords;
 
-    public WordViewModel (Application application) {
+    public WordViewModel(Application application) {
         super(application);
         mRepository = new WordRepository(application);
         mAllWords = mRepository.getAllWords();
     }
 
-    LiveData<List<WordEntity>> getAllWords() { return mAllWords; }
+    LiveData<List<WordEntity>> getAllWords() {
+        return mAllWords;
+    }
 
-    public void insert(WordEntity word) { mRepository.insert(word); }
+    public void insert(WordEntity word) {
+        mRepository.insert(word);
+    }
+
+    public void deleteAll() {
+        mRepository.deleteAll();
+    }
+
+    public void deleteWord(WordEntity word) {mRepository.deleteWord(word);}
+
+    public void update(WordEntity word) {
+        mRepository.update(word);
+    }
+
 }

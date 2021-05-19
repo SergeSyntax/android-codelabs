@@ -6,11 +6,13 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private WordViewModel mWordViewModel;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    public static final int UPDATE_WORD_ACTIVITY_REQUEST_CODE = 2;
+
+    public static final String EXTRA_DATA_UPDATE_WORD = "extra_word_to_be_updated";
+    public static final String EXTRA_DATA_ID = "extra_data_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +39,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Set up the RecyclerView.
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final WordListAdapter adapter = new WordListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mWordViewModel =  new ViewModelProvider(this).get(WordViewModel.class);
 
+        // Set up the WordViewModel.
+        mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
+        // Get all the words from the database
+        // and associate them to the adapter.
         mWordViewModel.getAllWords().observe(this, new Observer<List<WordEntity>>() {
             @Override
             public void onChanged(@Nullable final List<WordEntity> words) {
@@ -47,27 +57,95 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Floating action button setup
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
             startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
+
+
+        // Add the functionality to swipe items in the
+        // RecyclerView to delete the swiped item.
+        ItemTouchHelper helper = new ItemTouchHelper(
+                new ItemTouchHelper.SimpleCallback(0,
+                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                    @Override
+                    // We are not implementing onMove() in this app.
+                    public boolean onMove(@NonNull RecyclerView recyclerView,
+                                          @NonNull RecyclerView.ViewHolder viewHolder,
+                                          @NonNull RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    // When the use swipes a word,
+                    // delete that word from the database.
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                        int position = viewHolder.getAdapterPosition();
+                        WordEntity myWord = adapter.getWordAtPosition(position);
+                        Toast.makeText(MainActivity.this,
+                                getString(R.string.delete_word_preamble) + " " +
+                                        myWord.getWord(), Toast.LENGTH_LONG).show();
+
+                        // Delete the word.
+                        mWordViewModel.deleteWord(myWord);
+                    }
+                });
+        // Attach the item touch helper to the recycler view.
+        helper.attachToRecyclerView(recyclerView);
+
+
+        adapter.setOnItemClickListener(new WordListAdapter.ClickListener()  {
+
+            @Override
+            public void onItemClick(View v, int position) {
+                WordEntity word = adapter.getWordAtPosition(position);
+                launchUpdateWordActivity(word);
+            }
+        });
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    /**
+     * When the user enters a new word in the NewWordActivity,
+     * that activity returns the result to this activity.
+     * If the user entered a new word, save it in the database.
+
+     * @param requestCode ID for the request
+     * @param resultCode indicates success or failure
+     * @param data The Intent sent back from the NewWordActivity,
+     *             which includes the word that the user entered
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             WordEntity word = new WordEntity(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
+            // Save the data.
             mWordViewModel.insert(word);
+        } else if (requestCode == UPDATE_WORD_ACTIVITY_REQUEST_CODE
+                && resultCode == RESULT_OK) {
+            String word_data = data.getStringExtra(NewWordActivity.EXTRA_REPLY);
+            int id = data.getIntExtra(NewWordActivity.EXTRA_REPLY_ID, -1);
+
+            if (id != -1) {
+                mWordViewModel.update(new WordEntity(id, word_data));
+            } else {
+                Toast.makeText(this, R.string.unable_to_update,
+                        Toast.LENGTH_LONG).show();
+            }
         } else {
             Toast.makeText(
-                    getApplicationContext(),
-                    R.string.empty_not_saved,
-                    Toast.LENGTH_LONG).show();
+                    this, R.string.empty_not_saved, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void launchUpdateWordActivity( WordEntity word) {
+        Intent intent = new Intent(this, NewWordActivity.class);
+        intent.putExtra(EXTRA_DATA_UPDATE_WORD, word.getWord());
+        intent.putExtra(EXTRA_DATA_ID, word.getId());
+        startActivityForResult(intent, UPDATE_WORD_ACTIVITY_REQUEST_CODE);
     }
 
     @Override
@@ -84,10 +162,16 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.clear_data) {
+            // Add a toast just for confirmation
+            Toast.makeText(this, "Clearing the data...",
+                    Toast.LENGTH_SHORT).show();
+
+            // Delete the existing data
+            mWordViewModel.deleteAll();
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }

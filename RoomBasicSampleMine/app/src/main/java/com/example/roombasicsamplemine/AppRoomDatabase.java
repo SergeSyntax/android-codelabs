@@ -5,31 +5,28 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
  * The fact that this has very few comments emphasizes its coolness.
  */
 
-@Database(entities = {WordEntity.class}, version = 1,  exportSchema = false)
-public abstract class WordRoomDatabase extends RoomDatabase {
+@Database(entities = {WordEntity.class}, version = 1, exportSchema = false)
+public abstract class AppRoomDatabase extends RoomDatabase {
 
     public abstract WordDao wordDao();
 
-    private static WordRoomDatabase INSTANCE;
+    private static AppRoomDatabase INSTANCE;
 
-    static WordRoomDatabase getDatabase(final Context context) {
+    static AppRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (WordRoomDatabase.class) {
+            synchronized (AppRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            WordRoomDatabase.class, "word_database")
+                            AppRoomDatabase.class, "app_database")
                             // Wipes and rebuilds instead of migrating if no Migration object.
                             // Migration is not part of this codelab.
                             .fallbackToDestructiveMigration()
@@ -45,10 +42,10 @@ public abstract class WordRoomDatabase extends RoomDatabase {
      * Override the onOpen method to populate the database.
      * For this sample, we clear the database every time it is created or opened.
      */
-    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback(){
+    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
 
         @Override
-        public void onOpen (@NonNull SupportSQLiteDatabase db){
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
             // If you want to keep the data through app restarts,
             // comment out the following line.
@@ -63,9 +60,9 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final WordDao mDao;
-        String [] words = {"dolphin", "crocodile", "cobra"};
+        String[] words = {"dolphin", "crocodile", "cobra"};
 
-        PopulateDbAsync(WordRoomDatabase db) {
+        PopulateDbAsync(AppRoomDatabase db) {
             mDao = db.wordDao();
         }
 
@@ -75,11 +72,25 @@ public abstract class WordRoomDatabase extends RoomDatabase {
             // Not needed if you only populate on creation.
             mDao.deleteAll();
 
-            for( int i = 0; i <= words.length - 1; i++) {
+            for (int i = 0; i <= words.length - 1; i++) {
                 WordEntity word = new WordEntity(words[i]);
                 mDao.insert(word);
             }
             return null;
         }
+
+// another option if you wanted to keep the changes
+//        @Override
+//        protected Void doInBackground(final Void... params) {
+//
+//            // If we have no words, then create the initial list of words
+//            if (mDao.getAnyWord().length < 1) {
+//                for (int i = 0; i <= words.length - 1; i++) {
+//                    WordEntity word = new WordEntity(words[i]);
+//                    mDao.insert(word);
+//                }
+//            }
+//            return null;
+//        }
     }
 }
